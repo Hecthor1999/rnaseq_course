@@ -11,14 +11,18 @@ $ cd /data/Users/harribas
 $ mkdir RNA_seq_course
 $ mkdir breast_cancer_project
 $ cd RNA_seq_course/breast_cancer_project/
-$ ln -s /data/courses/rnaseq_course/breastcancer_de/reads ./
 $ mkdir reference_genome
 $ mkdir mapping
 $ mkdir index_bam
 $ mkdir sam-bam
 $ mkdir feature_counts
 $ mkdir scripts
-``` 
+```
+create softlink to reads folder where the data is stored
+```
+$ ln -s /data/courses/rnaseq_course/breastcancer_de/reads ./
+```
+
 # 2.Quality check 
 (Step carried out in the IBU cluster)
 
