@@ -33,16 +33,17 @@ $ sbatch run_fastqc.sh
 # 3.Mapping reads to the reference genome
 (Step carried out in the IBU cluster)
 ```
-$ cd reference_genome/
+$ cd ../reference_genome/
 ```
 Upload the latest reference genome sequence and associated annotation, Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz (2023-04-21) and Homo_sapiens.GRCh38.110.gtf
 Unzip reference genome
 ```
 $ gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 ```
-change the name of Homo_sapiens.GRCh38.dna.primary_assembly.fa to genome.fa (for easier use)
+change the names of Homo_sapiens.GRCh38.dna.primary_assembly.fa to genome.fa and Homo_sapiens.GRCh38.110.gtf to genome.gtf (for easier use) 
 ```
 $ mv Homo_sapiens.GRCh38.dna.primary_assembly.fa genome.fa
+$ mv Homo_sapiens.GRCh38.110.gtf genome.gtf
 ```
 create script to index reference genome and submit it
 ```
@@ -51,9 +52,10 @@ $ sbatch index_without_transcripts.sh
 ```
 ---------------------------------------------
 For mapping
+
 go to directory, create file samplelist.tsv with paths to reads for slurm-array
 ```
-$ cd mapping/
+$ cd ../mapping/
 $ touch samplelist.tsv
 ```
 create and run mapping script
@@ -63,9 +65,10 @@ $ sbatch array_mapping_without_transcripts
 ```
 --------------------------------------------------
 sam to bam 
+
 update samplelist.tsv with sam files location and move it to scripts folder, go to sam-bam directory
 ```
-$ cd sam-bam/
+$ cd ../sam-bam/
 ```
 create and run array_sam_to_bam.sh which converts sam files to bam files and sorts bam files.
 ```
@@ -75,13 +78,33 @@ $ sbatch array_sam_to_bam.sh
 ---------------------------------------------------
 index bam files
 
+go to index_bam directory
+```
+$ cd ../index_bam
+```
+create and run array_index_bam.sh
+```
+$ vim array_index_bam.sh
+$ sbatch array_index_bam.sh
+```
+download bam files with scp command to inspect with Integrative Genomic Viewer (IGV)
 
 # 4.Count the number of reads per gene
 (Step carried out in the IBU cluster)
 
+go to feature_counts directory, create and run feature_counts.sh
+```
+$ cd ../feature_counts
+$ vim feature_counts.sh
+$ sbatch feature_counts.sh
+```
+Download featurecounts.txt to local machine with scp command for further downstream analysis
 
+# 5. Exploratory analysis, differential expression analysis, Overrepresentation analysis
+(Steps carried out on local machine)
 
-
+create metadata.txt
+create and run R script DeSeq2_pipeline.R
 
 
 
