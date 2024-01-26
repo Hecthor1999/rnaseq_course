@@ -49,7 +49,7 @@ $ vim index_without_transcripts.sh
 $ sbatch index_without_transcripts.sh
 ```
 ---------------------------------------------
-mapping
+For mapping
 go to directory, create file samplelist.tsv with paths to reads for slurm-array
 ```
 $ cd mapping/
@@ -57,9 +57,22 @@ $ touch samplelist.tsv
 ```
 create and run mapping script
 ```
-$ 
+$ vim array_mapping_without_transcripts
+$ sbatch array_mapping_without_transcripts
 ```
-
+--------------------------------------------------
+sam to bam 
+update samplelist.tsv with sam files location and move it to scripts folder, go to sam-bam directory
+```
+$ cd sam-bam/
+```
+create and run array_sam_to_bam.sh which converts sam files to bam files and sorts bam files.
+```
+$ vim array_sam_to_bam.sh
+$ sbatch array_sam_to_bam.sh
+```
+---------------------------------------------------
+index bam files
 
 
 # 4.Count the number of reads per gene
