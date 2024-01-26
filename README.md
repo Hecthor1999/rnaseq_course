@@ -1,5 +1,6 @@
 # RNA_seq_course_breast_cancer
-Repository for the documented code used in the analysis performed during the RNA sequencing course\n
+Repository for the documented code used in the analysis performed during the RNA sequencing course
+
 Detection of differential gene expression from bulk RNA sequencing data of three different breast cancer subtypes
 # 1.Getting started
 (Step carried out in the IBU cluster)
