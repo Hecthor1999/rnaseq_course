@@ -1,0 +1,13 @@
+Sample,cancer,subtypes
+HER21,positive,HER2
+HER22,positive,HER2
+HER23,positive,HER2
+NonTNBC1,positive,NonTNBC
+NonTNBC2,positive,NonTNBC
+NonTNBC3,positive,NonTNBC
+Normal1,negative,Normal
+Normal2,negative,Normal
+Normal3,negative,Normal
+TNBC1,positive,TNBC
+TNBC2,positive,TNBC
+TNBC3,positive,TNBC
