@@ -233,6 +233,7 @@ write.csv(as.data.frame(ego3), file="Results_enrichGO_NonTNBC_vs_HER2.csv")
 #BiocManager::install("enrichplot")
 library(enrichplot)
 
+# Only included plots for contrast TNBC vs HER2 due to space constraints 
 dotplot(ego1, showCategory=10) + ggtitle("TNBC vs HER2")
 upsetplot(ego1) + ggtitle("TNBC vs HER2")
 
