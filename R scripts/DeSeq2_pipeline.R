@@ -160,11 +160,35 @@ EnhancedVolcano(res_NonTNBC_HER2,
 CDKN2A <- plotCounts(dds, "ENSG00000147889", intgroup = c("subtypes"), returnData = TRUE)
 boxplot(count ~ subtypes, data=CDKN2A, main="Expression of CDKN2A", col="skyblue")
 
+#calculate the mean and standard deviation of the read counts in TNBC
+mean_CDKN2A_TNBC <- mean(CDKN2A[10:12,1])
+sd_CDKN2A_TNBC <- sd(CDKN2A[10:12,1])
+
+#calculate the mean and standard deviation of the of the read counts in rest of the samples combined
+mean_CDKN2A_HER2_NonTNBC_Normal <- mean(CDKN2A[1:9,1])
+sd_CDKN2A_HER2_NonTNBC_Normal <- sd(CDKN2A[1:9,1])
+
 SNORA53 <- plotCounts(dds, "ENSG00000212443", intgroup = c("subtypes"), returnData = TRUE)
 boxplot(count ~ subtypes, data=SNORA53, main="Expression of SNORA53", col="skyblue")
 
+#calculate the mean and standard deviation of the read counts in HER2
+mean_SNORA53_TNBC_NonTNBC_Normal <- mean(SNORA53[1:3,1])
+sd_SNORA53_TNBC_NonTNBC_Normal <- sd(SNORA53[1:3,1])
+
+#calculate the mean and standard deviation of the of the read counts in rest of the samples combined
+mean_SNORA53_HER2 <- mean(SNORA53[4:12,1])
+sd_SNORA53_HER2 <- sd(SNORA53[4:12,1])
+
 ESR1 <- plotCounts(dds, "ENSG00000091831", intgroup = c("subtypes"), returnData = TRUE)
 boxplot(count ~ subtypes, data=ESR1, main="Expression of ESR1", col="skyblue")
+
+#calculate the mean and standard deviation of the read counts in NonTNBC
+mean_ESR1_NonTNBC <- mean(ESR1[4:6,1])
+sd_ESR1_NonTNBC <- sd(ESR1[4:6,1])
+
+#calculate the mean and standard deviation of the of the read counts in rest of the samples combined
+mean_ESR1_TNBC_HER2_Normal <- mean(ESR1[c(1:3, 7:12),1])
+sd_ESR1_TNBC_HER2_Normal <- sd(ESR1[c(1:3, 7:12),1])
 
 #export the results:
 write.csv( as.data.frame(res_1), file="results_TNBC_vs_HER2.csv")
