@@ -1,3 +1,4 @@
+#Pipeline which includes all possible contrasts and plots not used in the report for a deeper analysis of the data.
 setwd("C:\\Users\\hecto\\OneDrive\\Escritorio\\Master Bioinformatics\\1º semester\\RNA sequencing\\breast cancer project")
 library(DESeq2)
 
